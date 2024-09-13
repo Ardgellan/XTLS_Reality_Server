@@ -116,8 +116,8 @@ systemd_cat_config() {
 }
 
 check_if_running_as_root() {
-  # If you want to run as another user, please modify $EUID to be owned by this user
-  if [[ "$EUID" -ne '0' ]]; then
+  # If you want to run as another user, please modify $EUID to be owned by this user (Ardgellan - Ну собственно я так и сделал. В оригинале if -ne '0')
+  if [[ "$EUID" -ne '1000'  ]]; then
     echo "error: You must run this script as root!"
     exit 1
   fi
